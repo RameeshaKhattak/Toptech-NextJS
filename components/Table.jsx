@@ -46,7 +46,11 @@ const Table = ({ data, columns }) => {
         return columns.some((column) => {
           // use column.value to get the data displaying and make it case insensitive by change in to toLowerCase and then finding the index of the search in it
           return (
-            column.value(row).toLowerCase().indexOf(search.toLowerCase()) !== -1
+            column
+              .value(row)
+              .trim()
+              .toLowerCase()
+              .indexOf(search.trim().toLowerCase()) !== -1
           )
         })
       })
